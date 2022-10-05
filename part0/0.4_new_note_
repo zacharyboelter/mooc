@@ -1,0 +1,9 @@
+title NewNote
+
+browser->server: Request URL: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+note right of server: form submit event
+server->browser: 302, HTTP GET location: /exampleapp/notes
+note left of browser: reloads notes page
+browser->server: HTTP GET main.css / main.js / data.json
+server->browser: main.css main.js data.json
+browser->server: HTTP POST content/date
