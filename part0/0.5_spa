@@ -1,0 +1,4 @@
+title spa
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: HTTP code
