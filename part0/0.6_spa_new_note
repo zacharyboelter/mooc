@@ -1,4 +1,4 @@
 title spa_new_note
 
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-server->browser: 201
+server->browser: {"content":"new note","date":"2022-10-05T18:44:27.341Z"}
