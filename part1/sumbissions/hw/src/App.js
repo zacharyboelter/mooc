@@ -5,8 +5,9 @@ const App = () => {
   const [ counter, setCounter ] = useState(0)
 
 
-  // const handleClick = () => setCounter(counter + 1)
+  const increaseByOne = () => setCounter(counter + 1)
 
+  const setToZero = () => setCounter(0)
   // setTimeout(
   //   () => setCounter(counter + 1),
   //   1000
@@ -16,7 +17,7 @@ const App = () => {
    
   return(
     <>
-      <button onClick={() => setCounter(counter + 1)}>
+      <button onClick={increaseByOne}>
         Plus
       </button>
       
@@ -26,7 +27,7 @@ const App = () => {
 
       <br />
 
-      <button onClick={() => setCounter(0)}>
+      <button onClick={(setToZero}>
         Reset
       </button>
       
