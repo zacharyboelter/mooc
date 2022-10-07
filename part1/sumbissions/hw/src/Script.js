@@ -12,14 +12,14 @@ const Script = () => {
 
     const handleLeftClicks = () => {
         const newClicks = {
-            left: clicks.left + 1,
-            right: clicks.right
+            ...clicks,
+            left: clicks.left + 1
         }
         setClicks(newClicks)
     }
     const handleRightClicks = () => {
         const newClicks = {
-            left: clicks.left,
+            ...clicks,
             right: clicks.right + 1
         }
         setClicks(newClicks)
@@ -30,12 +30,8 @@ const Script = () => {
     return (
         <>
         {clicks.left}
-            <button onClick={handleLeftClicks}>
-                left
-            </button>
-            <button onClick={handleRightClicks}>
-                right
-            </button>
+            <button onClick={handleLeftClicks}>left</button>
+            <button onClick={handleRightClicks}>right</button>
         {clicks.right}
         </>
     )
