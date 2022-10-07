@@ -4,16 +4,32 @@ import { useState } from "react"
 const App = () => {
   const [ counter, setCounter ] = useState(0)
 
-  setTimeout(
-    () => setCounter(counter + 1),
-    1000
-    )
+
+  // const handleClick = () => setCounter(counter + 1)
+
+  // setTimeout(
+  //   () => setCounter(counter + 1),
+  //   1000
+  //   )
 
     console.log('rendering...', counter)
    
   return(
     <>
+      <button onClick={() => setCounter(counter + 1)}>
+        Plus
+      </button>
+      
+      <br />
+      
       {counter} fuck you
+
+      <br />
+
+      <button onClick={() => setCounter(0)}>
+        Reset
+      </button>
+      
     </>
   )  
 }
