@@ -1,3 +1,27 @@
+import { useState } from "react"
+
+
+const App = () => {
+  const [ counter, setCounter ] = useState(0)
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+    )
+
+    console.log('rendering...', counter)
+   
+  return(
+    <>
+      {counter} fuck you
+    </>
+  )  
+}
+
+export default App
+
+
+
 
 
 // const App = () => {
@@ -37,39 +61,37 @@
 // }
 
 
-const Hello = (props) => {
-  const name = props.name
-  const age = props.age
-  const bornYear = () => new Date().getFullYear() - age
+
+// ~~~~~~~~~~~~~~~~~~~~~~  Further deconstuct the shit below!!! ~~~~~~~~~~~~~~~~~~~~~~~
+// const Hello = ({name, age}) => {
+//   const bornYear = () => new Date().getFullYear() - age
+// }
+
+// const Hello = (props) => {
+//   const { name, age } = props
+//   const bornYear = () => new Date().getFullYear() - age
   
-  return (
-    <div>
-      <p>
-        Hello {props.name}, you are {props.age} years old
-      </p>
-      <p>
-        Let me guess, you were born in {bornYear()} then?
-      </p>
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <p>
+//         Hello {props.name}, you are {props.age} years old
+//       </p>
+//       <p>
+//         Let me guess, you were born in {bornYear()} then?
+//       </p>
+//     </div>
+//   )
+// }
 
-const App = () => {
-  const name = 'Peter'
-  const age = 10
+// const App = () => {
+//   const name = 'Peter'
+//   const age = 10
 
-  return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={name} age={age} />
-    </div>
-  )
-}
-
-
-
-
-
-
-export default App
+//   return (
+//     <div>
+//       <h1>Greetings</h1>
+//       <Hello name="Maya" age={26 + 10} />
+//       <Hello name={name} age={age} />
+//     </div>
+//   )
+// }
