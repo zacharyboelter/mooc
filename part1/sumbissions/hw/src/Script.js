@@ -11,18 +11,11 @@ const Script = () => {
     })
 
     const handleLeftClicks = () => {
-        const newClicks = {
-            ...clicks,
-            left: clicks.left + 1
-        }
-        setClicks(newClicks)
+        setClicks(...clicks, left: clicks.left + 1 )
+        
     }
     const handleRightClicks = () => {
-        const newClicks = {
-            ...clicks,
-            right: clicks.right + 1
-        }
-        setClicks(newClicks)
+        setClicks(...clicks, right: clicks.right + 1)
     }
 
 
