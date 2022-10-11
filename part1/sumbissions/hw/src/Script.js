@@ -52,6 +52,8 @@ const Script = () => {
                 <Button handleClick={handleRightClicks} text='Right'/>
             {right}
             <br />
+            <Button handleClick={() => setLeft(0)} text='Set left to zero'/>
+            <Button handleClick={() => setRight(0)} text='Set right to zero'/>
             <br />
                 <History allClicks={allClicks}/>
             <br />
@@ -59,11 +61,7 @@ const Script = () => {
                 <Button handleClick={reset} text='Reset'/>
         </>
     )
-
 }
-
-
-
 
 export default Script
 
