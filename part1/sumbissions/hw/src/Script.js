@@ -2,34 +2,30 @@ import { useState } from "react"
 
 
 const Script = () => {
-    // const [left, setLeft ] = useState(0)
-    // const [right, setRight ] = useState(0)
-
-    const [clicks, setClicks] = useState({
-        left: 0,
-        right: 0
-    })
+    const [left, setLeft] = useState(0)
+    const [right, setRight] = useState(0)
+    const [allClicks, setAll] = useState([])
 
     const handleLeftClicks = () => {
-        setClicks({...clicks, left: clicks.left + 1 })
-        
+        setAll(allClicks.concat('L'))
+        setLeft(left + 1)
     }
     const handleRightClicks = () => {
-        setClicks({...clicks, right: clicks.right + 1})
+        setAll(allClicks.concat('R'))
+        setRight(right + 1)
     }
-
-
 
     return (
         <>
-        {clicks.left}
-            <button onClick={handleLeftClicks}>left</button>
-            <button onClick={handleRightClicks}>right</button>
-        {clicks.right}
+        {left}
+        <button onClick={handleLeftClicks}>Left</button>
+        <button onClick={handleRightClicks}>Right</button>
+        {right}
+        <p>{allClicks.join(', ')}</p>
         </>
     )
-}
 
+}
 
 
 
@@ -99,4 +95,37 @@ export default Script
 //       <Button onClick={setToZero} text='Reset' />
 //     </>
 //   )  
+// }
+
+
+
+// const Script = () => {
+//     // const [left, setLeft ] = useState(0)
+//     // const [right, setRight ] = useState(0)
+
+//     // Changing state has to always be done by setting the state to a new object!
+
+//     const [clicks, setClicks] = useState({
+//         left: 0,
+//         right: 0
+//     })
+
+//     const handleLeftClicks = () => {
+//         setClicks({...clicks, left: clicks.left + 1 })
+        
+//     }
+//     const handleRightClicks = () => {
+//         setClicks({...clicks, right: clicks.right + 1})
+//     }
+
+
+
+//     return (
+//         <>
+//         {clicks.left}
+//             <button onClick={handleLeftClicks}>left</button>
+//             <button onClick={handleRightClicks}>right</button>
+//         {clicks.right}
+//         </>
+//     )
 // }
