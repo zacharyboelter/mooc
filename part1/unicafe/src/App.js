@@ -11,13 +11,13 @@ const Button = ({handleClick, text}) => {
 const Statline = (props) => {
   return (
     <>
-      <p>{props.text}: {props.value}</p>
+      <p>{props.text} {props.value}</p>
     </>
   )
 }
 
-const Statistics = ({good, neutral, bad, all}) => {
-  if (all === 0){
+const Statistics = ({good, neutral, bad, total}) => {
+  if (total === 0){
     return (
       <>
         No feedback given.
@@ -25,14 +25,44 @@ const Statistics = ({good, neutral, bad, all}) => {
     )
   } else {
     return(
-      <>
-        <Statline text='good' value={good}/>
-        <Statline text='neutraaaaaal' value={neutral}/>
-        <Statline text='not good' value={bad}/>
-        <Statline text='all of them counted up' value={all}/>
-        <Statline text='what the average be?' value={((good - bad) / all).toFixed(2)}/>
-        <Statline text='positive response average' value={`${(good / all * 100).toFixed(2)}%`} />
-      </>
+      <table>
+        <tbody>
+          <tr>
+            <td><Statline text='Good:'/></td>
+            <td><Statline value={good}/></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td><Statline text='Neutral:'/></td>
+            <td><Statline value={neutral}/></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td><Statline text='Bad:'/></td>
+            <td><Statline value={bad}/></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td><Statline text='Total:'/></td>
+            <td><Statline value={total}/></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td><Statline text='Average:'/></td>
+            <td><Statline value={((good - bad) / total).toFixed(2)}/></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td><Statline text='Positive Rate:'/></td>
+            <td><Statline value={`${(good / total * 100).toFixed(2)}%`}/></td>
+          </tr>
+        </tbody>
+      </table>
     )
   }
 }
@@ -53,7 +83,7 @@ const App = () => {
   const handleBadClick = () => {
     setBad(bad + 1)
   }
-  const all = good + neutral + bad 
+  const total = good + neutral + bad 
 
 
   return (
@@ -69,7 +99,7 @@ const App = () => {
         good={good}
         neutral={neutral}
         bad={bad}
-        all={all}
+        total={total}
       />
     </div>
   )
