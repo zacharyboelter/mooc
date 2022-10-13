@@ -6,6 +6,17 @@ const Button = ({handleClick, text}) => {
   )
 }
 
+const DisplayVotes = (props) => {
+  console.log(props)
+  return (
+    <>
+      <p>Number of votes: {props.value}</p>
+    </>
+  )
+}
+
+
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -18,18 +29,55 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
+  //create new array, all elements set to 0, length of array of anecdotes
+  const votes_table = new Uint8Array(anecdotes.length)
+  const [votes, setVotes] = useState(votes_table)
+
+  const [mostVotes, setMostVotes] = useState(0)
 
   const getRandomIndex  = () => {
-    const random = Math.floor(Math.random() * anecdotes.length) + 1
+    const random = Math.floor(Math.random() * anecdotes.length)
     setSelected(random)
   }
+
+  const handleVote = () => {
+    setVotes(newTable(selected, votes))
+  }
+
+  const checkHighest = (arr) => {
+    let max = 0;
+    let maxi = 0;
+    for(let i = 0; i < anecdotes.length; i++){
+      if(arr[i] > max){
+        max = arr[i]
+        maxi = i
+      }
+    }
+    setMostVotes(maxi)
+  }
   
+  const newTable = (selected, votes) => {
+    const copy = [...votes]
+    copy[selected] += 1
+    console.log(copy)
+    checkHighest(copy)
+    return copy
+
+  }
 
   return (
     <div>
+      <h1>Anecdote of the Day</h1>
       {anecdotes[selected]}
       <br />
+      <br />
+      <DisplayVotes value={votes[selected]} />
+      <br />
+      <Button handleClick={handleVote} text='Upvote' />
       <Button handleClick={getRandomIndex} text='Next Anecdote'/>
+      <br />
+      <h1>Highest Voted Anecdote: </h1>
+      <p>{anecdotes[mostVotes]}</p>
     </div>
   )
 }
