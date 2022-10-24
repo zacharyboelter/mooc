@@ -2,12 +2,18 @@ import { useState } from 'react'
 import './styles.css'
 
 
+// coming back and commenting to see what I remember off the top
+
+
+
+//button component, destructured props
 const Button = ({handleClick, text}) => {
   return (
     <button onClick={handleClick}>{text}</button>
   )
 }
 
+// statline component that gets passed to statistics component
 const Statline = (props) => {
   return (
     <>
