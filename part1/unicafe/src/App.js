@@ -13,7 +13,7 @@ const Button = ({handleClick, text}) => {
   )
 }
 
-// statline component that gets passed to statistics component
+// statline component that gets passed to statistics component, props set in stats
 const Statline = (props) => {
   return (
     <>
@@ -22,6 +22,7 @@ const Statline = (props) => {
   )
 }
 
+//stats component, destructured props (set in App), conditional rendering if there are no votes. html table with maths logic set inside
 const Statistics = ({good, neutral, bad, total}) => {
   if (total === 0){
     return (
