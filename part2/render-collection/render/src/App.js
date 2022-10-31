@@ -4,11 +4,16 @@ const App = (props) => {
   return (
     <div>
       <h1>Notes</h1>
-      <ul>
-        <li>{notes[0].content}</li>
-        <li>{notes[1].content}</li>
-        <li>{notes[2].content}</li>
-      </ul>
+      <ol>
+      {/* notes[1].content */}
+      {/* notes[2].content */}
+      {/* notes[3].content */}
+      {/* Instead, map over the array and display each as an LI */}
+        {notes.map(note =>
+           <li>
+              {note.content}
+            </li>)}
+      </ol>
     </div>
   )
 }
