@@ -1,3 +1,6 @@
+
+import Course from './components/Course'
+
 const App = () => {
   const course = {
     id: 1,
