@@ -11,7 +11,7 @@ const Course = ({course}) => {
     return (
         <div>
             <Header name={course.name} />
-            {course.parts.map(part => 
+            {course.parts.map(part =>                                                           //second level mapping that handles display within each course
                 <Content key={part.id} name={part.name} exercises={part.exercises} />)}
             <h3>Total number of exercises: {total}</h3>
         </div>

@@ -1,5 +1,5 @@
 
-
+// main content display for course
 const Content = ({name, exercises}) => {
     return (
         <div>

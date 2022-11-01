@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <div>
-      {courses.map(course => {
+      {courses.map(course => {                                //First level mapping that does the high level courses
         return <Course key={course.id} course={course} />
       })}
       

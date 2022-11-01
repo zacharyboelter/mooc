@@ -1,5 +1,5 @@
 
-
+// simple header
 const Header = ({name}) => {
     return(
         <div>
