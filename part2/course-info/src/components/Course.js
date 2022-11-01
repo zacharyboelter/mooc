@@ -2,6 +2,7 @@ import Header from './sections/Header'
 import Content from './sections/Content'
 
 const Course = ({course}) => {
+    //logic for total number of exercises
     const total = course.parts.reduce((prev, curr) => {
         return prev + curr.exercises
       }, 0
