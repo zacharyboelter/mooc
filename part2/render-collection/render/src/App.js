@@ -5,6 +5,7 @@ import { useState } from 'react'
 const App = (props) => {
   const [notes, setNotes] = useState(props.notes)
   const [newNote, setNewNote] = useState('... blah')
+  const [showAll, setShowAll] = useState(true)
 
   const addNote = (e) => {
     e.preventDefault()
@@ -24,12 +25,20 @@ const App = (props) => {
     setNewNote(e.target.value)
   }
   
+  const notesToShow = showAll 
+    ? notes
+    : notes.filter(note => note.important)
 
   return (
     <div>
       <h1>Notes</h1>
+      <div>
+        <button onClick={() => setShowAll(!showAll)}>
+          show {showAll ? 'important' : 'all' }
+        </button>
+      </div>
       <ul>
-        {notes.map(note =>
+        {notesToShow.map(note =>
            <Note key={note.id} note={note}/>
         )}
       </ul>
@@ -39,7 +48,9 @@ const App = (props) => {
             value={newNote}
             onChange={handleNoteChange}
           />
-          <button type='submit'>Add Note</button>
+          <button type='submit' >
+            Add Note
+          </button>
       </form>
     </div>
   )
