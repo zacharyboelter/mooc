@@ -19,12 +19,10 @@ const App = (props) => {
     setNotes(notes.concat(noteObject))
     setNewNote('')
   }
-
   const handleNoteChange = (e) => {
     console.log(e.target.value)
     setNewNote(e.target.value)
   }
-  
   const notesToShow = showAll 
     ? notes
     : notes.filter(note => note.important)
